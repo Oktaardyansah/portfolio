@@ -13,3 +13,24 @@ document.addEventListener("click", function (e) {
     menuToogle.classList.remove("active");
   }
 });
+
+const sections = document.querySelectorAll("section");
+const navLinks = document.querySelectorAll(".navbar-nav a");
+
+window.onscroll = () => {
+  sections.forEach((sec) => {
+    let top = window.scrollY;
+    let offset = sec.offsetTop;
+    let height = sec.offsetHeight;
+    let id = sec.getAttribute("id");
+
+    if (top >= offset && top < offset + height) {
+      navLinks.forEach((link) => {
+        link.classList.remove("active");
+        document
+          .querySelector(`.navbar-nav a[href*=${id}]`)
+          .classList.add("active");
+      });
+    }
+  });
+};

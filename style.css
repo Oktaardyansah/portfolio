@@ -46,7 +46,8 @@ body {
   transition: 0.2s linear;
 }
 
-.navbar .navbar-nav a:hover {
+.navbar .navbar-nav a:hover,
+.navbar .navbar-nav a.active {
   color: brown;
 }
 
@@ -59,7 +60,8 @@ body {
   transition: 0.2s linear;
 }
 
-.navbar .navbar-nav a:hover::after {
+.navbar .navbar-nav a:hover::after,
+.navbar .navbar-nav a.active::after {
   transform: scaleX(0.5);
 }
 
@@ -120,6 +122,7 @@ span:last-child {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  overflow: hidden;
   background-color: #0f172a;
 }
 
@@ -289,12 +292,33 @@ span:last-child {
   text-align: center;
 }
 
-.about .container {
+.about .wrapper-1 {
   display: flex;
+  overflow: hidden;
+  padding-bottom: 20px;
   justify-content: space-between;
   text-align: left;
   margin-top: 50px;
   gap: 100px;
+}
+
+.about .wrapper-2 {
+  margin-top: 30px;
+}
+
+.about .wrapper-2 .sertifikat {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  gap: 10px;
+}
+
+.about .sertifikat .card {
+  width: 33.33%;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 .about h4,
@@ -317,6 +341,36 @@ span:last-child {
 
 .about .about-me {
   flex: 1;
+}
+
+svg {
+  fill: currentColor;
+}
+
+.about .icon,
+footer .icon {
+  display: flex;
+  gap: 10px;
+}
+
+.about .icon a,
+footer .icon a {
+  margin-top: 10px;
+  display: flex;
+  border-radius: 50%;
+  width: 36px;
+  color: rgb(226, 232, 240);
+  height: 36px;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid white;
+}
+
+.icon a:hover {
+  background-color: #14d8a6;
+  color: #1e293b;
+  border: #14d8a6;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
 }
 
 .about .lets-friend {
@@ -478,9 +532,13 @@ footer li a:hover {
 }
 
 footer > p {
-  border-top: 2px solid #fff;
   text-align: center;
   padding-top: 20px;
+}
+
+footer .icon {
+  border-top: 2px solid #fff;
+  justify-content: center;
 }
 
 /* Media Query */
@@ -517,9 +575,17 @@ footer > p {
     width: 90%;
   }
 
-  .about .container {
+  .about .wrapper-1 {
     flex-direction: column;
     gap: 50px;
+  }
+
+  .about .wrapper-2 .sertifikat {
+    flex-direction: column;
+  }
+
+  .about .sertifikat .card {
+    width: 60%;
   }
 
   .contact form {
@@ -540,6 +606,10 @@ footer > p {
 
   .image h2 {
     font-size: 1rem;
+  }
+
+  .about .sertifikat .card {
+    width: 100%;
   }
 
   .contact form {
